@@ -344,3 +344,16 @@ body:not(.dark-mode) .modal-info a {
         /* Limit the height to 80% of the viewport height */
     }
 }
+
+/* Tambahkan gaya untuk tombol Back */
+#back-button {
+    background: none;
+    border: none;
+    font-size: 1.5rem; /* Ukuran font yang lebih besar */
+    cursor: pointer;
+    transition: transform 0.1s ease; /* Tambahkan efek transisi */
+}
+
+#back-button:hover {
+    transform: scale(1.1); /* Efek zoom saat hover */
+}
