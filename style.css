@@ -313,3 +313,22 @@ body:not(.dark-mode) .modal-info a {
     transform: scale(0.9);
     transition: transform 0.1s ease;
 }
+
+/* Tambahkan ini di akhir file CSS */
+@media (max-width: 768px) {
+    .masonry {
+        column-count: 2; /* Ubah jumlah kolom untuk tampilan mobile */
+    }
+
+    .pin {
+        margin-bottom: 10px; /* Kurangi margin untuk tampilan lebih baik */
+    }
+
+    .modal-info {
+        padding: 20px; /* Sesuaikan padding untuk modal */
+    }
+
+    #modalImage {
+        height: auto; /* Pastikan gambar modal responsif */
+    }
+}
