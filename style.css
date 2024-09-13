@@ -85,6 +85,12 @@ body {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
+    transition: transform 0.1s ease, color 0.3s ease; /* Added color transition */
+}
+
+#theme-toggle:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
+    color: #6200ff; /* Change color on hover */
 }
 
 .glass-card {
@@ -311,7 +317,7 @@ body:not(.dark-mode) .modal-info a {
 }
 
 #theme-toggle:active {
-    transform: scale(0.9);
+    transform: scale(0.9); /* Change from scale(9) to scale(0.9) */
     transition: transform 0.1s ease;
 }
 
