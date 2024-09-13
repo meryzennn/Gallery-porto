@@ -1,33 +1,310 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            font-family: 'Chakra Petch', sans-serif;
-            font-size: 10px;
-        }
-        .header {
-            padding: 20px;
-            text-align: center;
-        }
-        .masonry {
-            column-count: 4;
-            column-gap: 16px;
-            padding: 16px;
-        }
-        .pin {
-            break-inside: avoid;
-            margin-bottom: 16px;
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-        }
-        .pin img {
-            width: 100%;
-            border-radius: 8px 8px 0 0;
-        }
-        .pin-content {
-            padding: 16px;
-        }
+body {
+    font-family: 'Chakra Petch', sans-serif;
+    font-size: 10px;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.5s ease, color 0.5s ease;
+    padding-bottom: 50px; /* Adjust this value based on your footer's height */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+.masonry {
+    column-count: 4;
+    column-gap: 16px;
+    padding: 16px;
+}
+
+.pin {
+    break-inside: avoid;
+    margin-bottom: 16px;
+    background-color: var(--card-bg-color);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: background-color 0.5s ease, box-shadow 0.5s ease, backdrop-filter 0.5s ease, transform 0.3s ease;
+}
+
+.pin:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+}
+
+.pin img {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    transition: filter 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.pin:hover img {
+    filter: brightness(1.1);
+}
+
+.pin img:active {
+    transform: scale(0.98);
+    filter: brightness(0.9);
+}
+
+.pin-content {
+    padding: 16px;
+    text-align: center;
+}
+
+.pin-content h3 {
+    font-size: 1rem; /* Perbesar ukuran font untuk judul */
+}
+
+:root {
+    --bg-color: #e0e0e0;
+    --text-color: #333333;
+    --card-bg-color: #f0f0f0; /* Ubah warna kartu menjadi abu-abu muda */
+    transition: all 0.5s ease;
+}
+
+.dark-mode {
+    --bg-color: #333333;
+    --text-color: #ffffff;
+    --card-bg-color: #444444;
+}
+
+#theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.glass-card {
+    background-color: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.5s ease, backdrop-filter 0.5s ease, box-shadow 0.5s ease;
+}
+
+.dark-mode .pin {
+    background-color: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    position: relative;
+    background-color: var(--card-bg-color);
+    margin: auto;
+    padding: 0;
+    width: 90%;
+    max-width: 700px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+#modalImage {
+    width: 100%;
+    height: auto;
+    border-radius: 10px 10px 0 0;
+}
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal.show .modal-content {
+    transform: scale(1);
+}
+
+.modal-image-container {
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    overflow: hidden; /* Add this line */
+}
+
+.modal-content {
+    display: flex;
+    flex-direction: row; /* Ubah menjadi 
+    row untuk menempatkan konten secara 
+    horizontal */
+    margin: 5% auto;
+    width: 90%;
+    max-width: 1000px; /* Sedikit 
+    diperbesar untuk mengakomodasi layout 
+    baru */
+    background-color: var(--card-bg-color);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.
+    2);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+}
+
+#modalImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px 0 0 10px;
+    transform: scale(0.9); /* Start slightly smaller */
+    transition: transform 0.3s ease; /* Add transition */
+}
+
+.modal.show #modalImage {
+    transform: scale(1); /* Scale to full size when modal is shown */
+}
+
+.modal-info {
+    width: 40%;
+    padding: 40px 20px 20px; /* Tambahkan padding atas */
+    background-color: var(--card-bg-color);
+    border-radius: 0 10px 10px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+/* Tambahkan aturan untuk mengubah font di deskripsi */
+.modal-info p {
+    margin-top: 40px; /* Tambahkan margin atas untuk memindahkan p ke bawah */
+    text-align: center; /* Ganti dengan font yang diinginkan */
+    font-size: 15px; /* Sesuaikan ukuran font jika perlu */
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    opacity: 0.4; /* Mulai dengan opacity 0 */
+    transition: opacity 0.1s;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal .close {
+    color: #fff; /* Default color for dark mode */
+}
+body:not(.dark-mode) .modal .close {
+    color: #000; /* Black color for light mode */
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(10px);
+    text-align: center;
+    transition: background-color 0.3s ease;
+}
+
+.dark-mode .footer {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.copyright {
+    margin: 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.dark-mode .copyright {
+    color: #fff;
+}
+
+.copyright a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.copyright a:hover {
+    text-decoration: underline;
+}
+
+body.dark-mode .copyright {
+    color: #ccc;
+}
+
+body.dark-mode .copyright a {
+    color: #66b3ff;
+}
+
+.transparent-bg {
+    background-color: rgba(0, 0, 0, 0.1); /* Black with 50% opacity */
+}
+
+.modal-info a {
+    font-size: 2vh;
+    text-align: center;
+    color: #6200ff; /* Warna default */
+    text-decoration: none;
+    margin-top: 60vh; /* Tambahkan margin atas untuk memindahkan tombol ke bawah */
+}
+
+/* Tambahkan aturan untuk mengubah warna tombol berdasarkan mode */
+body:not(.dark-mode) .modal-info a {
+    color: black; /* Ubah warna tombol menjadi hitam di mode terang */
+}
+
+.dark-mode .modal-info a {
+    color: white; /* Ubah warna tombol menjadi putih di mode gelap */
+}
+
+.visit-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #574c4c88;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.visit-button:hover {
+    background-color: #9849ff;
+}
+
+#modalTitle {
+    font-size: 24px; /* Ubah ukuran font sesuai kebutuhan */
+}

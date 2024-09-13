@@ -8,38 +8,56 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
 </head>
 <body>
     <header class="header">
         <h1>Gallery 🖼️</h1>
+        <button id="theme-toggle">🌓</button>
     </header>
-    <!-- Tambahkan lebih banyak pin di sini -->
+    
+    <!-- Tambahkan modal untuk menampilkan gambar besar -->
+    <div id="imageModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div class="modal-image-container">
+                <img id="modalImage">
+            </div>
+            <div class="modal-info">
+                <h2 id="modalTitle"></h2>
+                <p id="modalDescription"></p>
+                <a id="modalLink" class="visit-button" target="_blank">Visit Website</a>
+            </div>
+        </div>
+    </div>
+
     <div class="masonry">
-
-      <!-- card start -->
+        <!-- card start -->
         <div class="pin">
-          <a href="https://solscan.io/token/DuSgYXRH6vYaPDu4wdM7cw4G4pxH62fmh6QZrL33739j?cluster=mainnet" target="_blank">
-            <img src="/static/girl3.webp" alt="Justflex">
-          </a>
+          <img src="/static/girl3.webp" alt="Justflex" data-title="justflex" 
+          data-description="Just Flexing My jewelry" 
+          class="pin-image">
           <div class="pin-content">
-              <h3>Just Flex</h3>
+              <h3>JustFlex</h3>
           </div>
+      </div>
+
+        <div class="pin">
+            <img src="/static/girl1.webp" alt="Justflex" data-title="Lost4Found" 
+            data-description="''𝙰𝚏𝚝𝚎𝚛 𝚍𝚒𝚜𝚊𝚙𝚙𝚎𝚊𝚛𝚒𝚗𝚐 𝚑𝚎 𝚠𝚊𝚜 𝚏𝚘𝚞𝚗𝚍 𝚊𝚐𝚊𝚒𝚗 𝚒𝚗 𝚊 𝚍𝚒𝚏𝚏𝚎𝚛𝚎𝚗𝚝 𝚌𝚘𝚗𝚍𝚒𝚝𝚒𝚘𝚗''" 
+            class="pin-image">
+            <div class="pin-content">
+                <h3>Lost4Found</h3>
+            </div>
         </div>
 
-        <div class="pin">
-          <a href="https://paras.id/en/token/x.paras.near::84850/84850%3A1" target="_blank">
-            <img src="/static/girl1.webp" alt="">
-          </a>
-          <div class="pin-content">
-              <h3>lost4found</h3>
-          </div>
-        </div>
-
-      
-      
-      <!-- card end -->
+        <!-- card end -->
 
     </div>
+
+    <footer class="footer">
+        <p class="copyright">&copy; 2024 meryzennn | GitHub: <a href="https://github.com/meryzennn" target="_blank">meryzennn</a></p>
+    </footer>
 </body>
 </html>
 
