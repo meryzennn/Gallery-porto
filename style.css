@@ -85,16 +85,6 @@ body {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    transition: transform 0.1s ease; /* Tambahkan efek transisi */
-}
-
-#theme-toggle:hover {
-    transform: scale(1.2); /* Efek zoom saat hover */
-}
-
-#theme-toggle:active {
-    transform: scale(1); /* Change from scale(9) to scale(0.9) */
-    transition: transform 0.1s ease;
 }
 
 .glass-card {
@@ -321,7 +311,7 @@ body:not(.dark-mode) .modal-info a {
 }
 
 #theme-toggle:active {
-    transform: scale(0.9); /* Change from scale(9) to scale(0.9) */
+    transform: scale(0.9);
     transition: transform 0.1s ease;
 }
 
