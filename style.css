@@ -331,4 +331,14 @@ body:not(.dark-mode) .modal-info a {
     #modalImage {
         height: auto; /* Pastikan gambar modal responsif */
     }
+
+    .modal-content {
+        width: 95%; /* Adjust modal width for mobile */
+        max-width: none; /* Remove max-width restriction */
+    }
+
+    #modalImage {
+        height: auto; /* Ensure the image is responsive */
+        max-height: 80vh; /* Limit the height to 80% of the viewport height */
+    }
 }
